@@ -5,14 +5,14 @@ services:
     image: "postgres"
     env_file: .env
     volumes:
-      - pgdata1:/var/lib/postgresql/data
+      - pgdata:/var/lib/postgresql/data
     ports:
       - "5432:5432"
 
   web:
-    image: "moikhoo23/laptrinhweb:lastest"
+    build: .
     ports:
-      - "3000:3000"
+      - "80:3000"
     entrypoint: ["/bin/sh", "./src/scripts/entrypoint.sh"]
     depends_on:
       - db

@@ -8,4 +8,4 @@ RUN npm install
 
 RUN chmod 755 src/scripts/entrypoint.sh
 
-EXPOSE 3006
+EXPOSE 3000

@@ -11,7 +11,7 @@ import session from "express-session";
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const app = express()
-const port = process.env.PORT || 3001
+const port = process.env.PORT || 3000
 
 app.use(express.json())
 // for form data
