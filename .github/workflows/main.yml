@@ -43,13 +43,7 @@ jobs:
           password: ${{ secrets.SERVER_PASSWD }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            echo "${{ secrets.ENV }}" >> .env
-            if [ -f .env ]; then
-              echo ".env file found"
-            else
-              echo ".env file not found"
-              exit 1
-            fi
+            cd /github-folder
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/shopwatchne:${{ github.sha }}
             docker compose down
             docker-compose up -d --build
