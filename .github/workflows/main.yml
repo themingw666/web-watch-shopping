@@ -43,6 +43,7 @@ jobs:
           password: ${{ secrets.SERVER_PASSWD }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
+            echo "${{ secrets.ENV }}" >> .env
             if [ -f .env ]; then
               echo ".env file found"
             else
