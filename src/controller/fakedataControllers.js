@@ -49,4 +49,14 @@ const index = async (req,res) => {
     }
     
 }
-export default {index}
+
+const clear = async (req,res) => {
+    try {
+        await prisma.products.deleteMany();
+        await prisma.users.deleteMany();
+    } catch (error) {
+        return res.send("ERROR", error)
+    }
+}
+
+export default {index, clear}
