@@ -3,6 +3,8 @@ const prisma = new PrismaClient()
 
 const index = async (req,res) => {
     try {
+        await prisma.ShippingAddress.deleteMany();
+        await prisma.BillingAddress.deleteMany();
         await prisma.products.deleteMany();
         await prisma.users.deleteMany();
         await prisma.$queryRaw`INSERT INTO \"users\" (id, username, email, password, role, money)
@@ -42,10 +44,15 @@ const index = async (req,res) => {
         await prisma.$queryRaw`INSERT INTO \"products\" (id, name, money, quantity, des, authorid, image)
         VALUES (16, 'Parigi Connect Vjp Pro Max 666', 666666, 0, 'A luxury watch is a symbol of elegance and sophistication, meticulously crafted from premium materials, blending artistry with advanced technology.', 1, 'https://i.imgur.com/ZsOutul.jpeg')`
 
+        await prisma.$queryRaw`INSERT INTO "ShippingAddress" (userid, name, address, country, email, phone)
+        VALUES (1, 'Daniel Robinson', '1418 River Drive, Suite 35 Cottonhall, CA 9622', 'United States', 'sale@uomo.com', '+1 246-345-0695');`;
+        await prisma.$queryRaw`INSERT INTO "BillingAddress" (userid, name, address, country, email, phone)
+        VALUES (1, 'Daniel Robinson', '1418 River Drive, Suite 35 Cottonhall, CA 9622', 'United States', 'sale@uomo.com', '+1 246-345-0695');`;
+
         return res.clearCookie('jwt').send("OKE")
         
     } catch (error) {
-        return res.send("ERROR", error)
+        return res.send(error)
     }
     
 }

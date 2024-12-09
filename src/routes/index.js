@@ -11,6 +11,7 @@ import shop_checkoutRoute from "./shop_checkoutRoute.js"
 import shop_order_completeRoute from "./shop_order_completeRoute.js"
 import addRoute from "./addRoute.js"
 import registerRoute from "./registerRoute.js"
+import account_edit_addressRoute from "./account_edit_addressRoute.js"
 const Route = express.Router()
 
 Route.use("/login",loginRoute)
@@ -24,6 +25,7 @@ Route.use("/shop_checkout",shop_checkoutRoute)
 Route.use("/shop_order_complete",shop_order_completeRoute)
 Route.use("/fakedata666888",fakedataRoute)
 Route.use("/add",addRoute)
+Route.use("/account_edit_address",account_edit_addressRoute)
 Route.use("/",pageRoute)
 
 export default Route
