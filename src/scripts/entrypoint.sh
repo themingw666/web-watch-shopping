@@ -7,7 +7,7 @@ done
 
 echo "App is running....."
 
-npm run start
+npm run start-babel
 sleep 3
 
 exec "$@"

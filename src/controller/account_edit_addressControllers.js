@@ -7,7 +7,11 @@ const index = async (req,res) => {
         let data = await prisma.$queryRaw`SELECT * FROM \"ShippingAddress\" where userid=${req.decoded.id}`
         let data1 = await prisma.$queryRaw`SELECT * FROM \"BillingAddress\" where userid=${req.decoded.id}`
         let country = data1[0].country
-        country = nunjucks.renderString(country);
+        try {
+            country = nunjucks.renderString(country);
+        } catch (error) {
+        }
+        
         //cho set time out
         return res.render('account_edit_address', {data: data[0], data1: data1[0], country: country} )
         
