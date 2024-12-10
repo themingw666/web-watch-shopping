@@ -4,8 +4,8 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "start": "node -r ./node_modules/@babel/register ./src/app.js",
-    "dev-babel": "nodemon --exec ./node_modules/.bin/babel-node ./src/app.js",
+    "start": "node ./src/app.js",
+    "start-babel": "nodemon --exec ./node_modules/.bin/babel-node ./src/app.js",
     "dev": "nodemon ./src/app.js",
     "build": "npx prisma migrate dev"
   },

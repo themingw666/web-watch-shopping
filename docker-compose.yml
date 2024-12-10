@@ -11,6 +11,7 @@ services:
 
   web:
     image: "moikhoo23/shopwatchne:latest"
+    env_file: .env
     ports:
       - "80:3000"
     entrypoint: ["/bin/sh", "./src/scripts/entrypoint.sh"]
